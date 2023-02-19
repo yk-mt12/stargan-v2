@@ -127,11 +127,28 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
 
 # custom
 python main.py --mode eval --num_domains 3 --w_hpf 0 \
-               --resume_iter 100 \
+               --resume_iter 10 \
                --train_img_dir data/custom/train \
                --val_img_dir data/custom/val \
-               --checkpoint_dir expr/checkpoints/afhq \
-               --eval_dir expr/eval/afhq
+               --checkpoint_dir expr/checkpoints/custom \
+               --eval_dir expr/eval/custom \
+               --batch_size 4 \
+               --total_iters 20 \
+               --eval_every 10 \
+
+
+# options
+--randcrop_prob : ランダムクロップを使用する確率を設定します。デフォルトでは50%に設定されています。
+--total_iters : 学習するイテレーションの合計回数を設定します。デフォルトでは100,000に設定されています。
+--resume_iter : 学習を再開するイテレーションを設定します。デフォルトでは0に設定されています。
+--batch_size : 学習時のバッチサイズを設定します。デフォルトでは8に設定されています。
+--val_batch_size : 検証時のバッチサイズを設定します。デフォルトでは32に設定されています。
+--lr : D、E、Gに使用する学習率を設定します。デフォルトでは1e-4に設定されています。
+--f_lr : Fに使用する学習率を設定します。デフォルトでは1e-6に設定されています。
+--beta1 : Adam最適化における1つ目のモーメントの減衰率を設定します。デフォルトでは0に設定されています。
+--beta2 : Adam最適化における2つ目のモーメントの減衰率を設定します。デフォルトでは0.99に設定されています。
+--weight_decay : オプティマイザに対するウェイトディケイを設定します。デフォルトでは1e-4に設定されています。
+--num_outs_per_domain : 1つのドメインに対して生成される画像の数を設定します。デフォルトでは10に設定されています。
 ```
 
 Note that the evaluation metrics are calculated using random latent vectors or reference images, both of which are selected by the [seed number](https://github.com/clovaai/stargan-v2/blob/master/main.py#L35). In the paper, we reported the average of values from 10 measurements using different seed numbers. The following table shows the calculated values for both latent-guided and reference-guided synthesis.
