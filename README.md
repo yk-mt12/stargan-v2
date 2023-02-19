@@ -124,6 +124,14 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
                --val_img_dir data/afhq/val \
                --checkpoint_dir expr/checkpoints/afhq \
                --eval_dir expr/eval/afhq
+
+# custom
+python main.py --mode eval --num_domains 3 --w_hpf 0 \
+               --resume_iter 100 \
+               --train_img_dir data/custom/train \
+               --val_img_dir data/custom/val \
+               --checkpoint_dir expr/checkpoints/afhq \
+               --eval_dir expr/eval/afhq
 ```
 
 Note that the evaluation metrics are calculated using random latent vectors or reference images, both of which are selected by the [seed number](https://github.com/clovaai/stargan-v2/blob/master/main.py#L35). In the paper, we reported the average of values from 10 measurements using different seed numbers. The following table shows the calculated values for both latent-guided and reference-guided synthesis.
@@ -155,7 +163,15 @@ python main.py --mode train --num_domains 3 --w_hpf 0 \
 python main.py --mode train --num_domains 3 --w_hpf 0 \
                --lambda_reg 1 --lambda_sty 1 --lambda_ds 2 --lambda_cyc 1 \
                --train_img_dir data/custom/train \
-               --val_img_dir data/custom/val
+               --val_img_dir data/custom/val \
+               --sample_dir expr/custom/samples \
+               --result_dir expr/results \
+               --checkpoint_dir expr/checkpoints/custom \
+               --batch_size 4 \
+               --total_iters 20 \
+               --sample_every 10 \
+               --save_every 10 \
+               --eval_every 10
 ```
 
 ## Animal Faces-HQ dataset (AFHQ)
