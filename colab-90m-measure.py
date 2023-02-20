@@ -1,3 +1,5 @@
+# 1時間毎に「Google Colab」にアクセスすることで、90分ルールによるリセットを回避できます。
+
 import time
 import datetime
 import webbrowser
