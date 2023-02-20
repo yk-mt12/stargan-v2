@@ -3,6 +3,7 @@
 
 # google colabで動作させる場合
 ローカルで`./colab-90m-measure.py`を実行し、google colabの90mのキャッシュリセットを対策する.
+※ 特にライブラリをインストール不要で動作する
 
 ```
 python colab-90m-measure.py
