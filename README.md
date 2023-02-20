@@ -1,6 +1,12 @@
 
 ## StarGAN v2 - Official PyTorch Implementation
 
+# google colabで動作させる場合
+ローカルで`./colab-90m-measure.py`を実行し、google colabの90mのキャッシュリセットを対策する.
+
+```
+python colab-90m-measure.py
+```
 <p align="left"><img width="95%" src="assets/teaser.jpg" /></p>
 
 > **StarGAN v2: Diverse Image Synthesis for Multiple Domains**<br>
