@@ -104,5 +104,6 @@ venv.bak/
 .mypy_cache/
 study_model.sqlite3
 .history
+# dataファイルはgithubのpush容量(100mb)を超えるためgitignoreに追加している
 data
 data.zip
