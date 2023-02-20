@@ -192,6 +192,12 @@ python main.py --mode train --num_domains 3 --w_hpf 0 \
                --save_every 10 \
                --eval_every 10
 ```
+> トレーニング時間
+> google colab × conda環境, GPU Tesla T4
+> バッチ数4の場合→ epoch数: 10(40s~1m), 100(10m), 1000(1h), 10000(10h), 100000(100h)
+> google colab（無料枠）での実行環境
+> バッチ数8の場合：動作しない（GPUが足りない）
+> epoch数（--total_iters）が5000くらいが限界？
 
 ## Animal Faces-HQ dataset (AFHQ)
 
