@@ -89,7 +89,7 @@ def _make_balanced_sampler(labels):
 
 
 def get_train_loader(root, which='source', img_size=256,
-                     batch_size=8, prob=0.5, num_workers=0):
+                     batch_size=8, prob=0.5, num_workers=4):
     print('Preparing DataLoader to fetch %s images '
           'during the training phase...' % which)
 
@@ -125,7 +125,7 @@ def get_train_loader(root, which='source', img_size=256,
 
 def get_eval_loader(root, img_size=256, batch_size=32,
                     imagenet_normalize=True, shuffle=True,
-                    num_workers=0, drop_last=False):
+                    num_workers=4, drop_last=False):
     print('Preparing DataLoader for the evaluation phase...')
     if imagenet_normalize:
         height, width = 299, 299
@@ -153,7 +153,7 @@ def get_eval_loader(root, img_size=256, batch_size=32,
 
 
 def get_test_loader(root, img_size=256, batch_size=32,
-                    shuffle=True, num_workers=0):
+                    shuffle=True, num_workers=4):
     print('Preparing DataLoader for the generation phase...')
     transform = transforms.Compose([
         transforms.Resize([img_size, img_size]),
