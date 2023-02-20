@@ -127,14 +127,16 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
 
 # custom
 python main.py --mode eval --num_domains 3 --w_hpf 0 \
-               --resume_iter 10 \
+               --resume_iter 100 \
                --train_img_dir data/custom/train \
                --val_img_dir data/custom/val \
                --checkpoint_dir expr/checkpoints/custom \
                --eval_dir expr/eval/custom \
+               --result_dir expr/results/custom \
                --batch_size 4 \
-               --total_iters 20 \
-               --eval_every 10 \
+               --total_iters 100 \
+               --eval_every 100 \
+               --num_workers 4
 
 
 # options
