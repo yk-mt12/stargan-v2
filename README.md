@@ -134,18 +134,19 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
                --checkpoint_dir expr/checkpoints/afhq \
                --eval_dir expr/eval/afhq
 
-# custom
+# by_time_zone
 python main.py --mode eval --num_domains 3 --w_hpf 0 \
                --resume_iter 100 \
-               --train_img_dir data/custom/train \
-               --val_img_dir data/custom/val \
-               --checkpoint_dir expr/checkpoints/custom \
-               --eval_dir expr/eval/custom \
-               --result_dir expr/results/custom \
+               --train_img_dir data/by_time_zone/train \
+               --val_img_dir data/by_time_zone/val \
+               --checkpoint_dir expr/checkpoints/by_time_zone \
+               --eval_dir expr/eval/by_time_zone \
+               --result_dir expr/results/by_time_zone \
                --batch_size 4 \
                --total_iters 100 \
                --eval_every 100 \
-               --num_workers 4
+               --num_workers 4 \
+               --val_batch_size 8
 
 
 # options
@@ -263,4 +264,4 @@ We would like to thank the full-time and visiting Clova AI Research (now NAVER A
 # 聞きたいこと
 - 学習の段階で輝度情報を重みとして画像ごとに付与することは可能か
   - 可能である。一般的にロス関数にweightを引数として付与することが多い
-  - 
+  -
