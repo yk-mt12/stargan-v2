@@ -199,7 +199,8 @@ python main.py --mode train --num_domains 3 --w_hpf 0 \
                --total_iters 20 \
                --sample_every 10 \
                --save_every 10 \
-               --eval_every 10
+               --eval_every 10 \
+               --val_batch_size 8
 ```
 > トレーニング時間
 > google colab × conda環境, GPU Tesla T4
@@ -258,3 +259,8 @@ If you find this work useful for your research, please cite our paper:
 
 ## Acknowledgements
 We would like to thank the full-time and visiting Clova AI Research (now NAVER AI Lab) members for their valuable feedback and an early review: especially Seongjoon Oh, Junsuk Choe, Muhammad Ferjad Naeem, and Kyungjune Baek. We also thank Alias-Free GAN authors for their contribution to the updated AFHQ dataset.
+
+# 聞きたいこと
+- 学習の段階で輝度情報を重みとして画像ごとに付与することは可能か
+  - 可能である。一般的にロス関数にweightを引数として付与することが多い
+  - 

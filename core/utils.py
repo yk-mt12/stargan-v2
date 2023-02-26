@@ -6,6 +6,15 @@ This work is licensed under the Creative Commons Attribution-NonCommercial
 4.0 International License. To view a copy of this license, visit
 http://creativecommons.org/licenses/by-nc/4.0/ or send a letter to
 Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+
+StarGAN v2で使用される機能を定義するための便利な関数が含まれています。具体的には、スタイルミックス、ランダムインターポレーション、高周波数成分の抽出などが含まれています。
+
+core/wing.pyは、PyTorchを使用して画像処理タスクに使用されるWing Lossの実装を提供します。Wing Lossは、人間の眼の感覚に近い形で、特に画像生成タスクにおいて、より高品質な結果を生成することができる損失関数です。
+
+Wing Lossは、ラベルが存在しない場合にも使用できる回帰損失関数で、二乗誤差に対してロバストな特性を持ちます。Wing Lossは、入力と目標出力との間の平均絶対誤差を計算しますが、しきい値（delta）を超えた場合には、損失を平方関数に変換して計算します。この平方関数により、誤差が大きくなった場合でも過剰に損失が増加することが抑制され、より滑らかな損失関数が得られます。
+
+core/wing.pyでは、Wing Lossの実装が提供されています。具体的には、Wing Lossの計算式、deltaの値、および損失関数を計算するためのPyTorchの関数が実装されています。
 """
 
 import os
@@ -176,7 +185,7 @@ def interpolate(nets, args, x_src, s_prev, s_next):
 def slide(entries, margin=32):
     """Returns a sliding reference window.
     Args:
-        entries: a list containing two reference images, x_prev and x_next, 
+        entries: a list containing two reference images, x_prev and x_next,
                  both of which has a shape (1, 3, 256, 256)
     Returns:
         canvas: output slide of shape (num_frames, 3, 256*2, 256+margin)
@@ -262,7 +271,7 @@ def video_latent(nets, args, x_src, y_list, z_list, psi, fname):
 def save_video(fname, images, output_fps=30, vcodec='libx264', filters=''):
     assert isinstance(images, np.ndarray), "images should be np.array: NHWC"
     num_frames, height, width, channels = images.shape
-    stream = ffmpeg.input('pipe:', format='rawvideo', 
+    stream = ffmpeg.input('pipe:', format='rawvideo',
                           pix_fmt='rgb24', s='{}x{}'.format(width, height))
     stream = ffmpeg.filter(stream, 'setpts', '2*PTS')  # 2*PTS is for slower playback
     stream = ffmpeg.output(stream, fname, pix_fmt='yuv420p', vcodec=vcodec, r=output_fps)

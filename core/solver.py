@@ -6,6 +6,8 @@ This work is licensed under the Creative Commons Attribution-NonCommercial
 4.0 International License. To view a copy of this license, visit
 http://creativecommons.org/licenses/by-nc/4.0/ or send a letter to
 Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+トレーニングとテストのフローを制御するプログラムです。トレーニングには、Generator、Mapping Network、Discriminator、Style Encoderの4つのネットワークを含む最適化器を定義し、指定されたエポック数分学習を行います。テストには、トレーニング済みのネットワークを使用して、指定された入力画像から出力画像を生成し、LPIPSを計算します。
 """
 
 import os
