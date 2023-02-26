@@ -107,3 +107,5 @@ study_model.sqlite3
 # dataファイルはgithubのpush容量(100mb)を超えるためgitignoreに追加している
 data
 data.zip
+**/*.DS_Store
+.DS_Store

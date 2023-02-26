@@ -37,6 +37,8 @@ cd stargan-v2/
 
 Install the dependencies:
 ```bash
+python3.9 -m venv venv
+source venv/bin/activate
 conda create -n stargan-v2 python=3.6.7
 conda activate stargan-v2
 conda install -y pytorch=1.4.0 torchvision=0.5.0 cudatoolkit=10.0 -c pytorch
@@ -82,18 +84,18 @@ python main.py --mode align \
                --inp_dir assets/representative/custom/female \
                --out_dir assets/representative/celeba_hq/src/female
 
-# customモデル
+# by_time_zoneモデル
 python main.py --mode align \
-               --inp_dir assets/representative/custom/12 \
-               --out_dir assets/representative/custom/src/12
+               --inp_dir assets/representative/by_time_zone/12 \
+               --out_dir assets/representative/by_time_zone/src/12
 
 python main.py --mode align \
-               --inp_dir assets/representative/custom/18 \
-               --out_dir assets/representative/custom/src/18
+               --inp_dir assets/representative/by_time_zone/18 \
+               --out_dir assets/representative/by_time_zone/src/18
 
 python main.py --mode align \
-               --inp_dir assets/representative/custom/21 \
-               --out_dir assets/representative/custom/src/21
+               --inp_dir assets/representative/by_time_zone/21 \
+               --out_dir assets/representative/by_time_zone/src/21
 ```
 
 
@@ -185,14 +187,14 @@ python main.py --mode train --num_domains 3 --w_hpf 0 \
                --train_img_dir data/afhq/train \
                --val_img_dir data/afhq/val
 
-# custom
+# by_time_zone
 python main.py --mode train --num_domains 3 --w_hpf 0 \
                --lambda_reg 1 --lambda_sty 1 --lambda_ds 2 --lambda_cyc 1 \
-               --train_img_dir data/custom/train \
-               --val_img_dir data/custom/val \
-               --sample_dir expr/custom/samples \
-               --result_dir expr/results \
-               --checkpoint_dir expr/checkpoints/custom \
+               --train_img_dir data/by_time_zone/train \
+               --val_img_dir data/by_time_zone/val \
+               --sample_dir expr/by_time_zone/samples \
+               --result_dir expr/by_time_zone \
+               --checkpoint_dir expr/checkpoints/by_time_zone \
                --batch_size 4 \
                --total_iters 20 \
                --sample_every 10 \
@@ -256,4 +258,3 @@ If you find this work useful for your research, please cite our paper:
 
 ## Acknowledgements
 We would like to thank the full-time and visiting Clova AI Research (now NAVER AI Lab) members for their valuable feedback and an early review: especially Seongjoon Oh, Junsuk Choe, Muhammad Ferjad Naeem, and Kyungjune Baek. We also thank Alias-Free GAN authors for their contribution to the updated AFHQ dataset.
-# stargan-v2
